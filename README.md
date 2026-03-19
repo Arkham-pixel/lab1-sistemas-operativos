@@ -106,4 +106,4 @@ Cédula: 1064980223
 
 Link de acceso al video: -----
 
-# **f) Manifiesto de transparencia: En que puntos se apoyaron de la IA generativa.**
+### **f) Manifiesto de transparencia: En que puntos se apoyaron de la IA generativa.**
