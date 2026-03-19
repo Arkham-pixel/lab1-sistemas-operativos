@@ -89,7 +89,7 @@ Cédula: 1064980223
     - Comando utilizado: './wgrep.exe "cadena a buscar" archivo2.txt archivo3.txt'
     - Resultado esperado: Se muestran solo las líneas que contienen la cadena especificada.
     - Resultado obtenido: El programa filtró correctamente las líneas que contenían la cadena buscada, confirmando que la función Wgrep funciona como se esperaba.
-    ![Prueba de la aplicación wgrep](img/PruebaWgrep.png)
+    ![Prueba de la aplicación wgrep](img/pruebaWgrep.png)
 
 - **Prueba de Wzip**
     - Comando utilizado: './wzip.exe archivo3.txt > archivo3.z'
@@ -107,3 +107,6 @@ Cédula: 1064980223
 Link de acceso al video: -----
 
 ### **f) Manifiesto de transparencia: En que puntos se apoyaron de la IA generativa.**
+
+Nos apoyamos de ChatGPT para corregir la logica de la aplicación wzip, debido a que estaba siendo funcional pero no tan eficiente. 
+De igual forma, hicimos uso de la IA para saber cómo resaltabamos de otro color la palabra a buscar en el método de wgrep, con el fin de que fuera más fácil identificar que la aplicación estaba siendo ejecutada correctamente.
