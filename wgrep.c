@@ -2,6 +2,22 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+void print_highlight(char *line, char *search) {
+    char *pos = line;
+    char *found;
+
+    while ((found = strstr(pos, search)) != NULL) {
+        printf("%.*s", (int)(found - pos), pos);
+
+        printf("\033[31m%s\033[0m", search);
+
+        pos = found + strlen(search);
+    }
+
+    printf("%s", pos);
+}
+
 int main(int argc, char *argv[]) {
 
     if (argc < 2) {
@@ -41,7 +57,7 @@ int main(int argc, char *argv[]) {
 
             while (getline(&line, &len, fp) != -1) {
                 if (strstr(line, search) != NULL) {
-                    printf("%s", line);
+                    print_highlight(line, search);
                 }
             }
 
