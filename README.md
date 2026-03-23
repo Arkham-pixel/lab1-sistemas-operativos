@@ -27,19 +27,18 @@ Cédula: 1064980223
         4. Si el archivo se abre correctamente, se lee su contenido línea por línea usando `fgets()` y se imprime en la salida estándar.
         5. Finalmente, se cierra el archivo con `fclose()` y se continúa con el siguiente archivo hasta procesar todos los argumentos.
 - **Wgrep**
-    - *Descripción:* Esta función busca una cadena específica dentro de uno o más archivos pasados como argumentos en la línea de comandos y muestra las líneas que contienen esa cadena.
+    - *Descripción:* Busca una cadena específica en la entrada estándar o en los archivos indicados como argumentos, mostrando las líneas que la contienen. Cuando se leen archivos, la cadena buscada se resalta en color rojo.
     - *Parámetros:* 
         - argc: número de argumentos recibidos por el programa desde la linea de comandos.
         - argv: arreglo de cadenas que contiene los argumentos pasados al programa, donde el primer argumento (argv[1]) es la cadena a buscar y los siguientes (argv[2] en adelante) son los nombres de los archivos a revisar.
     - *Retorno:* Devuelve **0** si la función se ejecuta correctamente, o **1** si ocurre un error al abrir alguno de los archivos (por ejemplo, argumentos insuficientes o fallo al abrir un archivo).
     - *Funcionamiento:* 
-        1. Se verifica que se hayan recibido suficientes argumentos (al menos dos), en caso contrario se termina el programa.
-        2. El primer argumento (argv[1]) se guarda como la cadena a buscar.
-        3. Se itera sobre cada archivo pasado como argumento (desde argv[2] hasta argv[argc-1]), intentando abrirlo con `fopen`.
-        4. Si el archivo no se puede abrir, se muestra un mensaje de error en la salida estándar de errores, se retorna **1** y finaliza.
-        5. Si el archivo se abre correctamente, se lee su contenido línea por línea usando `fgets()`, y para cada línea se verifica si contiene la cadena buscada utilizando `strstr()`.
-        6. Si la línea contiene la cadena buscada, se imprime esa línea en la salida estándar.
-        7. Finalmente, se cierra el archivo con `fclose()` y se continúa con el siguiente archivo hasta procesar todos los argumentos.
+        1.Verifica que se haya proporcionado al menos la cadena de búsqueda; si no, muestra un mensaje de uso y finaliza.
+        2. Si solo se dio la cadena (argc == 2), lee de la entrada estándar con getline() e imprime las líneas que contienen la cadena (sin resaltado).
+        3. Si se pasaron archivos (argc > 2), recorre cada uno desde argv[2]:
+            3.1 Intenta abrirlo con fopen(). Si falla, muestra un error y termina con código 1.
+            3.2 Lee línea por línea con getline(). Para cada línea que contenga la cadena (mediante strstr()), llama a print_highlight() para imprimir la línea resaltando las ocurrencias en rojo usando códigos ANSI.
+        4. Finalmente libera la memoria de la línea y cierra el archivo con fclose().
 - **Wzip**
     - *Descripción:* Esta función comprime el contenido de uno o más archivos pasados como argumentos en la línea de comandos utilizando una técnica de compresión simple basada en la repetición de caracteres.
     - *Parámetros:* 
