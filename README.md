@@ -34,7 +34,7 @@ Cédula: 1064980223
     - *Retorno:* Devuelve **0** si la función se ejecuta correctamente, o **1** si ocurre un error al abrir alguno de los archivos (por ejemplo, argumentos insuficientes o fallo al abrir un archivo).
     - *Funcionamiento:*
  
-        1.Verifica que se haya proporcionado al menos la cadena de búsqueda; si no, muestra un mensaje de uso y finaliza.
+        1. Verifica que se haya proporcionado al menos la cadena de búsqueda; si no, muestra un mensaje de uso y finaliza.
       
         2. Si solo se dio la cadena (argc == 2), lee de la entrada estándar con getline() e imprime las líneas que contienen la cadena (sin resaltado).
 
